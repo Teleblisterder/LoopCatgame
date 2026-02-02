@@ -21,9 +21,9 @@ MonoBehaviour:
   secenekA_AcclikEtkisi: 0
   secenekBMetni: "\xE7al\u0131lardan ko\u015Farak ka\xE7"
   secenekBSonucu: {fileID: 11400000, guid: 320f0f2616fea5247b643dcf2b4c7d06, type: 2}
-  secenekBSonucMetni: fafafa
+  secenekBSonucMetni: 
   secenekBResmi: {fileID: -1082356324364484506, guid: 90725aab5b7e1b34ead710fa5c7d6694, type: 3}
-  secenekB_CanEtkisi: -1
-  secenekB_AcclikEtkisi: -1
+  secenekB_CanEtkisi: 0
+  secenekB_AcclikEtkisi: 0
   olumculMu: 0
   Background: {fileID: -59127096382758151, guid: b26c8c7b3a0faee4a877dd208c456cc3, type: 3}

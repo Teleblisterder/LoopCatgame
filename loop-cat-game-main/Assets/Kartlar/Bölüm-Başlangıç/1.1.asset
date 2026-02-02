@@ -20,7 +20,7 @@ MonoBehaviour:
   secenekA_CanEtkisi: 0
   secenekA_AcclikEtkisi: 0
   secenekBMetni: "Di\u011Fer a\u011Fa\xE7lara z\u0131playarak ka\xE7"
-  secenekBSonucu: {fileID: 0}
+  secenekBSonucu: {fileID: 11400000, guid: 6b2f499ee59fe70499a25aadc012527e, type: 2}
   secenekBSonucMetni: 
   secenekBResmi: {fileID: -8172040297308566662, guid: ab87f9bc3cb07734799898ca151c00db, type: 3}
   secenekB_CanEtkisi: 0
