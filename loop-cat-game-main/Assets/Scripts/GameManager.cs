@@ -28,6 +28,10 @@ public class GameManager : MonoBehaviour
     public GameObject BButonlarPaneli;
     public GameObject tamEkranDevamButonu;
 
+    public AudioSource sesKaynagý;
+    public AudioClip klikSesi;
+
+
     void Start()
     {
         YenidenBaslat();
@@ -35,6 +39,10 @@ public class GameManager : MonoBehaviour
 
     private void YenidenBaslat()
     {
+        if (SceneFader.instance != null)
+    {
+        StartCoroutine(SceneFader.instance.FadeOut());
+    }
         MevcutSoruyuGuncelle(baslangicSorusu);
 
         playerStats.ChangeHealth(playerStats.maxHealth);
@@ -42,6 +50,8 @@ public class GameManager : MonoBehaviour
 
 
     }
+
+
 
     private void MevcutSoruyuGuncelle(Sorular yeniSoru)
     {
@@ -63,6 +73,8 @@ public class GameManager : MonoBehaviour
         }
         if (secenekA_Mi)
         {
+            sesKaynagý.PlayOneShot(klikSesi);
+
             playerStats.ChangeHealth(mevcutSoru.secenekA_CanEtkisi);
             playerStats.ChangeHunger(mevcutSoru.secenekA_AcclikEtkisi);
             if (playerStats.currentHunger <=0)
@@ -79,6 +91,8 @@ public class GameManager : MonoBehaviour
         }
         else
         {
+            sesKaynagý.PlayOneShot(klikSesi);
+
             playerStats.ChangeHealth(mevcutSoru.secenekB_CanEtkisi);
             playerStats.ChangeHunger(mevcutSoru.secenekB_AcclikEtkisi);
             if (playerStats.currentHunger <= 0)
@@ -124,6 +138,7 @@ public class GameManager : MonoBehaviour
     }
     public void SonrakiSoruyaGec()
     {
+
         tamEkranDevamButonu.SetActive(false);
         AButonlarPaneli.SetActive(true);
         BButonlarPaneli.SetActive(true);

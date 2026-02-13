@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -7,8 +8,20 @@ public class mainMenu : MonoBehaviour
     public GameObject gelistiriciPaneli;
     public GameObject anaMenuObjeleri; // Opsiyonel: Panel açılınca ana butonları gizlemek istersen
 
+    public AudioSource sesKaynagı;
+    public AudioClip klikSesi;
+
     public void SonrakiSahneyeGit()
     {
+sesKaynagı.PlayOneShot(klikSesi);
+            StartCoroutine(SahneGecisSureci());
+    }
+    IEnumerator SahneGecisSureci()
+    {
+        // 1. Ekranın kararmasını başlat ve BİTMESİNİ BEKLE
+        yield return StartCoroutine(SceneFader.instance.Fade(2f));
+
+        // 2. Kararma bitti (buraya ancak 2 saniye sonra gelir)
         int mevcutSahneIndex = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(mevcutSahneIndex + 1);
     }
@@ -18,6 +31,8 @@ public class mainMenu : MonoBehaviour
     {
         if (gelistiriciPaneli != null)
         {
+            sesKaynagı.PlayOneShot(klikSesi);
+
             gelistiriciPaneli.SetActive(true);
             anaMenuObjeleri.SetActive(false);
 
@@ -30,6 +45,8 @@ public class mainMenu : MonoBehaviour
     {
         if (gelistiriciPaneli != null)
         {
+            sesKaynagı.PlayOneShot(klikSesi);
+
             gelistiriciPaneli.SetActive(false);
             anaMenuObjeleri.SetActive(true);
             // anaMenuObjeleri.SetActive(true); // Ana butonları geri açarsın
@@ -39,6 +56,8 @@ public class mainMenu : MonoBehaviour
     // Oyundan çıkış yapar
     public void OyundanCik()
     {
+        sesKaynagı.PlayOneShot(klikSesi);
+
         Debug.Log("Oyundan çıkılıyor..."); // Editörde çalıştığını anlamak için
         Application.Quit(); // Derlenmiş oyunda çalışır
     }
